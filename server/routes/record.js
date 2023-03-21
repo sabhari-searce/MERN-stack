@@ -23,16 +23,16 @@ recordRoutes.route("/record").get( async function (req, res) {
 });
 
 
-recordRoutes.route("/update").post(function (req, response) {
+recordRoutes.route("/update").get(async function (req, response) {
   console.log(req);
-  let db_connect = dbo.getDb();
+  let db_connect = dbo.getDb("Invoice");
   let myquery = { _id: ObjectId("1") };
   let newvalues = {
     $set: {
       paid : true
     },
   };
-  db_connect
+  await db_connect
     .collection("Invoice")
     .updateOne(myquery, newvalues, function (err, res) {
       if (err) throw err;
