@@ -32,7 +32,7 @@ recordRoutes.route("/update").post(function (req, response) {
     },
   };
   db_connect
-    .collection("records")
+    .collection("Invoice")
     .updateOne(myquery, newvalues, function (err, res) {
       if (err) throw err;
       console.log("1 document updated");
