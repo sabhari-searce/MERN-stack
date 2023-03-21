@@ -9,8 +9,9 @@ const Record = (props) => (
 
    <h5 class="details">Invoice id : {props.record.id}</h5>
 
-   <div class="buy-button"> <a href="https://imjo.in/Cwe7mm" class="btn" rel="im-checkout" data-text="Pay Invoice" data-css-style="color:#ffffff; background:#75c26a; width:300px; border-radius:30px"   data-layout="vertical">Pay Now!</a>
+   <div class="buy-button"> <a href="https://www.instamojo.com/@sabhariInvoice/laf080eb28b4949eabf64e7ecb29597d4/" class="btn" rel="im-checkout" data-text="Pay Invoice" data-css-style="color:#ffffff; background:#75c26a; width:300px; border-radius:30px" data-description="Here is your payment portal to pay your unpaid Invoice. Please pay the invoice amount."  data-layout="vertical">Pay Now!</a>
 <script src="https://js.instamojo.com/v1/button.js"></script></div></div>
+
 
  
 );
