@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './RecordList.css'
 
- 
+//Retrives data from the mongo db and return it as a single packed component
 const Record = (props) => (
  <div>
    <h1 class="price"><span>₹</span> {props.record.price}</h1>

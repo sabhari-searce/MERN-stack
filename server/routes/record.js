@@ -22,9 +22,8 @@ recordRoutes.route("/record").get( async function (req, res) {
    res.send(result)
 });
 
-
+//This will update the paid status in the mongo db
 recordRoutes.route("/update").post(async function (req, response) {
-  //console.log(req);
   let db_connect = dbo.getDb("Invoice");
   let myquery = { id: "1" };
   let newvalues = {
@@ -35,8 +34,7 @@ recordRoutes.route("/update").post(async function (req, response) {
   let res = await db_connect
     .collection("Invoice")
     .updateOne(myquery, newvalues)
-  //console.log(res)
-  response.send(req)
+
  });
  
 
