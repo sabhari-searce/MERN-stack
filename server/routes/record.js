@@ -25,7 +25,7 @@ recordRoutes.route("/record").get( async function (req, res) {
 
 recordRoutes.route("/update").post(function (req, response) {
   let db_connect = dbo.getDb();
-  let myquery = { _id: ObjectId(req.params.id) };
+  let myquery = { _id: ObjectId("1") };
   let newvalues = {
     $set: {
       paid : true
