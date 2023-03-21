@@ -32,13 +32,10 @@ recordRoutes.route("/update").post(async function (req, response) {
       paid : true
     },
   };
-  await db_connect
+  let res = await db_connect
     .collection("Invoice")
-    .updateOne(myquery, newvalues, function (err, res) {
-      if (err) throw err;
-      console.log("1 document updated");
-      response.json(res);
-    });
+    .updateOne(myquery, newvalues)
+  console.log(res)
  });
  
 
