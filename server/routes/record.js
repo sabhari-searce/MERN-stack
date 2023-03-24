@@ -23,9 +23,37 @@ recordRoutes.route("/record").get( async function (req, res) {
 });
 
 //This will update the paid status in the mongo db
-recordRoutes.route("/update").post(async function (req, response) {
+recordRoutes.route("/updateone").post(async function (req, response) {
   let db_connect = dbo.getDb("Invoice");
   let myquery = { id: "1" };
+  let newvalues = {
+    $set: {
+      paid : true
+    },
+  };
+  let res = await db_connect
+    .collection("Invoice")
+    .updateOne(myquery, newvalues)
+
+ });
+
+ recordRoutes.route("/updatetwo").post(async function (req, response) {
+  let db_connect = dbo.getDb("Invoice");
+  let myquery = { id: "2" };
+  let newvalues = {
+    $set: {
+      paid : true
+    },
+  };
+  let res = await db_connect
+    .collection("Invoice")
+    .updateOne(myquery, newvalues)
+
+ });
+
+ recordRoutes.route("/updatethree").post(async function (req, response) {
+  let db_connect = dbo.getDb("Invoice");
+  let myquery = { id: "3" };
   let newvalues = {
     $set: {
       paid : true
