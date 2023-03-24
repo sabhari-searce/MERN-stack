@@ -47,24 +47,31 @@ export default function RecordList() {
  function recordList() {
    return records.map((record) => {
      return (
+      <div class="pricing-table">
+    <div class="card">
+     
+           
+           <th class="type">Invoice</th>
        <Record
          record={record}
        />
+       </div>
+   </div>
      );
    });
  }
  
  //This following section will display the table with the records of individuals.
  return (
-   <div class="pricing-table">
-    <div class="card">
+  //  <div class="pricing-table">
+  //   <div class="card">
      
            
-           <th class="type">Invoice</th>
+  //          <th class="type">Invoice</th>
          
        <p>{recordList()}</p>
-     </div>
-   </div>
+  //    </div>
+  //  </div>
  );
 }
 
