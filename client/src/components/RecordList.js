@@ -44,7 +44,7 @@ export default function RecordList() {
  
  
  // This method will map out the records on the table
- function recordList() {
+ 
    return records.map((record) => {
      return (
       <div class="pricing-table">
@@ -59,19 +59,19 @@ export default function RecordList() {
    </div>
      );
    });
- }
+ 
  
  //This following section will display the table with the records of individuals.
- return (
+ //return (
   //  <div class="pricing-table">
   //   <div class="card">
      
            
   //          <th class="type">Invoice</th>
          
-       <p>{recordList()}</p>
+      // <p>{recordList()}</p>
   //    </div>
   //  </div>
- );
+// );
 }
 
