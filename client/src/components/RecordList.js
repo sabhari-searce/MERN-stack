@@ -3,14 +3,20 @@ import './RecordList.css'
 
 //Retrives data from the mongo db and return it as a single packed component
 const Record = (props) => (
- <div>
+
+  <div class="pricing-table">
+    <div class="card">
+     
+           
+           <th class="type">Invoice</th>
    <h1 class="price"><span>₹</span> {props.record.price}</h1>
    <h3 class="plan">{props.record.name}</h3>
 
    <h5 class="details">Invoice id : {props.record.id}</h5>
 
-   <div class="buy-button"> <a href="https://test.instamojo.com/@sabhari/l6066e728a6634da6a8d02a09f39d16a4/" class="btn" rel="im-checkout" data-text="Pay Invoice" data-css-style="color:#ffffff; background:#75c26a; width:300px; border-radius:30px" data-description="Here is your payment portal to pay your unpaid Invoice. Please pay the invoice amount."  data-layout="vertical">Pay Now!</a>
-<script src="https://js.instamojo.com/v1/button.js"></script></div></div>
+   <div class="buy-button"> <a href={props.record.link} class="btn" rel="im-checkout" data-text="Pay Invoice" data-css-style="color:#ffffff; background:#75c26a; width:300px; border-radius:30px" data-description="Here is your payment portal to pay your unpaid Invoice. Please pay the invoice amount."  data-layout="vertical">Pay Now!</a>
+<script src="https://js.instamojo.com/v1/button.js"></script></div></div></div>
+   
 
 
  
@@ -18,8 +24,9 @@ const Record = (props) => (
 
 
  
-export default function RecordList() {
+export default function RecordList(props) {
  const [records, setRecords] = useState([]);
+ //const [status,setStatus] = useState(props.status)
  
  // This method fetches the records from the database.
  useEffect(() => {
@@ -33,7 +40,9 @@ export default function RecordList() {
      }
  
      const records = await response.json();
+     //console.log(records)
      setRecords(records);
+
    }
  
    getRecords();
@@ -43,35 +52,19 @@ export default function RecordList() {
  
  
  
- // This method will map out the records on the table
- 
-   return records.map((record) => {
-     return (
-      <div class="pricing-table">
-    <div class="card">
-     
-           
-           <th class="type">Invoice</th>
-       <Record
-         record={record}
-       />
-       </div>
-   </div>
-     );
-   });
- 
- 
- //This following section will display the table with the records of individuals.
- //return (
-  //  <div class="pricing-table">
-  //   <div class="card">
-     
-           
-  //          <th class="type">Invoice</th>
-         
-      // <p>{recordList()}</p>
-  //    </div>
-  //  </div>
-// );
-}
 
+  
+
+return records.filter((record)=>{
+return (props.status === 'UNPAID' && record.paid === false) || (props.status === 'PAID' && record.paid === true)
+}).map((record) => {
+  return <Record
+             record={record}
+          />
+});
+
+ }
+   
+ 
+ 
+ 

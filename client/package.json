@@ -13,6 +13,7 @@
     "instamojo-nodejs": "^0.0.5",
     "mongodb": "^5.1.0",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
     "react-native-instamojo-payment": "^0.0.10",
     "react-router-dom": "^6.9.0",
@@ -44,4 +45,3 @@
     ]
   }
 }
-
